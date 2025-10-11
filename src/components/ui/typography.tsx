@@ -8,10 +8,7 @@ export function Heading1({
 }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h1
-      className={cn(
-        'font-default text-size-h1 leading-h1 tracking-[-1px] font-normal',
-        className
-      )}
+      className={cn('font-default h1 tracking-[-1px] font-normal', className)}
       {...props}
     />
   );
@@ -23,10 +20,7 @@ export function Heading2({
 }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h2
-      className={cn(
-        'font-default text-size-h2 leading-h2 tracking-[-0.5px] font-normal',
-        className
-      )}
+      className={cn('font-default h2 tracking-[-0.5px] font-normal', className)}
       {...props}
     />
   );
@@ -38,10 +32,7 @@ export function Heading3({
 }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h3
-      className={cn(
-        'font-default text-size-h3 leading-h3 tracking-normal font-normal',
-        className
-      )}
+      className={cn('font-default h3 tracking-normal font-normal', className)}
       {...props}
     />
   );
@@ -53,10 +44,7 @@ export function Heading4({
 }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h4
-      className={cn(
-        'font-default text-size-h4 leading-h4 tracking-normal font-semibold',
-        className
-      )}
+      className={cn('font-default h4 tracking-normal font-semibold', className)}
       {...props}
     />
   );
@@ -68,10 +56,7 @@ export function Heading5({
 }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h5
-      className={cn(
-        'font-default text-size-h5 leading-h5 tracking-normal font-semibold',
-        className
-      )}
+      className={cn('font-default h5 tracking-normal font-semibold', className)}
       {...props}
     />
   );
@@ -83,10 +68,7 @@ export function Heading6({
 }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h6
-      className={cn(
-        'font-default text-size-h6 leading-h6 tracking-normal font-semibold',
-        className
-      )}
+      className={cn('font-default h6 tracking-normal font-semibold', className)}
       {...props}
     />
   );
@@ -98,10 +80,7 @@ export function Subtitle({
 }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h4
-      className={cn(
-        'font-default text-size-subtitle1 leading-subtitle1 tracking-[0.2px] font-semibold',
-        className
-      )}
+      className={cn('font-default subtitle1 tracking-[0.2px] font-semibold', className)}
       {...props}
     />
   );
@@ -113,10 +92,7 @@ export function SubtitleSmall({
 }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h4
-      className={cn(
-        'font-default text-size-subtitle2 leading-subtitle2 tracking-[0.2px] font-semibold',
-        className
-      )}
+      className={cn('font-default subtitle2 tracking-[0.2px] font-semibold', className)}
       {...props}
     />
   );
@@ -128,10 +104,7 @@ export function Paragraph({
 }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn(
-        'font-default text-size-body1 leading-body1 tracking-normal font-semibold',
-        className
-      )}
+      className={cn('font-default body1 tracking-normal font-semibold', className)}
       {...props}
     />
   );
@@ -143,10 +116,7 @@ export function ParagraphSmall({
 }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn(
-        'font-default text-size-body2 leading-body2 tracking-normal font-normal',
-        className
-      )}
+      className={cn('font-default body2 tracking-normal font-normal', className)}
       {...props}
     />
   );
@@ -158,10 +128,7 @@ export function Caption({
 }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn(
-        'font-default text-size-caption tracking-[0.2px] leading-caption font-normal',
-        className
-      )}
+      className={cn('font-default caption tracking-[0.2px] font-normal', className)}
       {...props}
     />
   );
@@ -174,7 +141,7 @@ export function OverlineText({
   return (
     <p
       className={cn(
-        'font-default text-concept-black text-size-overline tracking-[0.7px] leading-overline font-semibold uppercase',
+        'font-default text-concept-black typography-overline tracking-[0.7px] font-semibold uppercase',
         className
       )}
       {...props}
