@@ -11,7 +11,7 @@ export function SidebarGroupItemComponent({
   Icon,
 }: SidebarGroupItem) {
   return (
-    <li className="rounded-[4px] hover:bg-brand-50 group">
+    <li className="rounded-lg hover:bg-brand-50 group">
       <Link
         href={href}
         className="flex items-center justify-between gap-x-4 pl-3 pr-1 py-1"

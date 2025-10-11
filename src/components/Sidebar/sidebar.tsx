@@ -2,20 +2,18 @@ import React from 'react';
 import { Heading4, ParagraphSmall, SubtitleSmall } from '../ui';
 import { SidebarGroup } from './sidebar-group';
 import { sidebarGroups } from './data';
-import { BellIcon, DotsVerticalIcon } from '../icons';
+import { DotsVerticalIcon } from '../icons';
+import { NotificationButton } from './notification-button';
 
 export function Sidebar() {
   return (
     <aside className="h-screen max-w-70 border-r-1 flex flex-col gap-y-4">
       <div className="flex justify-between items-center py-2 px-4">
         <Heading4>Logo</Heading4>
-        {/* Make it a Button component and add notifications counter */}
-        <div className="p-2">
-          <BellIcon className="size-5" />
-        </div>
+        <NotificationButton notificationsCount={100} />
       </div>
       <div className="px-4">
-        {/* TODO: Make it a Button component */}
+        {/* TODO: Replace with a Button component */}
         <button className="text-center w-full border mb-2">+ Buy new proxies</button>
       </div>
       <nav className="flex flex-col px-4 gap-y-4">
@@ -43,7 +41,7 @@ export function Sidebar() {
             </ParagraphSmall>
           </address>
         </div>
-        {/* TODO: Make it a Button */}
+        {/* TODO: Replace with an IconButton component */}
         <div className="p-1">
           <DotsVerticalIcon className="size-5" />
         </div>
