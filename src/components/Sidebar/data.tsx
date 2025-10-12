@@ -14,6 +14,7 @@ import {
   BillingIcon,
   HelpIcon,
   ChevronRightIcon,
+  LiveLogIcon,
 } from '../icons';
 
 export const mainGroup: SidebarGroupItem[] = [
@@ -49,6 +50,7 @@ export const systemOverviewGroup: SidebarGroupItem[] = [
         stroke="var(--grey-700)"
       />
     ),
+    children: <LiveLogIcon className="size-5" />,
   },
 ];
 export const myServicesGroup: SidebarGroupItem[] = [

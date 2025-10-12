@@ -45,9 +45,9 @@ export function Sidebar() {
           </address>
         </div>
         {/* TODO: Replace with an IconButton component */}
-        <div className="p-1">
-          <DotsVerticalIcon className="size-5" />
-        </div>
+        <Button className="p-1" variant="text">
+          <DotsVerticalIcon className="size-5 stroke-grey-600" />
+        </Button>
       </div>
     </aside>
   );
