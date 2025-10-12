@@ -14,8 +14,9 @@ export function NotificationButton({
   const hasAnyNotifications = Boolean(notificationsCount);
   const isCountLimitReached = notificationsCount > countLimit;
 
+  /* TODO: Replace div with a Button component */
   return (
-    <div className="relative p-2">
+    <div className="relative p-2 cursor-pointer hover:opacity-75">
       <BellIcon className="size-5" stroke="var(--grey-700)" />
       {hasAnyNotifications && (
         <Caption className="absolute min-w-5 text-center px-0.5 top-0 right-0 bg-brand-400 rounded-[20px] outline-2 outline-base-white text-base-white">
