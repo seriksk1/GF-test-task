@@ -1,0 +1,62 @@
+@layer components {
+  .h1 {
+    font-size: 3em;
+    line-height: 1.167;
+    font-style: normal;
+  }
+  .h2 {
+    font-size: 2.5em;
+    line-height: 1.2;
+    font-style: normal;
+  }
+  .h3 {
+    font-size: 2em;
+    line-height: 1.25;
+    font-style: normal;
+  }
+  .h4 {
+    font-size: 1.5em;
+    line-height: 1.33;
+    font-style: normal;
+  }
+  .h5 {
+    font-size: 1.25em;
+    line-height: 1.4;
+    font-style: normal;
+  }
+  .h6 {
+    font-size: 1.125em;
+    line-height: 1.33;
+    font-style: normal;
+  }
+  .subtitle1 {
+    font-size: 1.125em;
+    line-height: 1.33;
+    font-style: normal;
+  }
+  .subtitle2 {
+    font-size: 0.875em;
+    line-height: 1.43;
+    font-style: normal;
+  }
+  .body1 {
+    font-size: 1em;
+    line-height: 1.5;
+    font-style: normal;
+  }
+  .body2 {
+    font-size: 0.875em;
+    line-height: 1.43;
+    font-style: normal;
+  }
+  .caption {
+    font-size: 0.75em;
+    line-height: 1.33;
+    font-style: normal;
+  }
+  .typography-overline {
+    font-size: 0.75em;
+    line-height: 1.67;
+    font-style: normal;
+  }
+}
