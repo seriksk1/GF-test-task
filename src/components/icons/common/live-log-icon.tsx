@@ -12,7 +12,7 @@ export function LiveLogIcon({ className, fill = '#00B67A', ...props }: DefaultIc
       className={className}
       {...props}
     >
-      <circle cx="12" cy="12" r="6" fill={fill} fill-opacity="0.2" />
+      <circle cx="12" cy="12" r="6" fill={fill} fillOpacity="0.2" />
       <circle cx="12" cy="12" r="2.5" fill={fill} />
     </svg>
   );
