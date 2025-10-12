@@ -8,7 +8,7 @@ import { Button } from '../ui/button';
 
 export function Sidebar() {
   return (
-    <aside className="h-screen min-w-70 border-r-1 flex flex-col gap-y-4">
+    <aside className=" h-screen min-w-70 border-r-1 flex flex-col gap-y-4">
       <div className="flex justify-between items-center py-2 px-4">
         <Heading4>Logo</Heading4>
         <NotificationButton notificationsCount={10} />
