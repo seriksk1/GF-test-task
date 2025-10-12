@@ -2,19 +2,22 @@ import React from 'react';
 import { Heading4, ParagraphSmall, SubtitleSmall } from '../ui';
 import { SidebarGroup } from './sidebar-group';
 import { sidebarGroups } from './data';
-import { DotsVerticalIcon } from '../icons';
+import { DotsVerticalIcon, PlusIcon } from '../icons';
 import { NotificationButton } from './notification-button';
+import { Button } from '../ui/button';
 
 export function Sidebar() {
   return (
-    <aside className="h-screen max-w-70 border-r-1 flex flex-col gap-y-4">
+    <aside className="h-screen min-w-70 border-r-1 flex flex-col gap-y-4">
       <div className="flex justify-between items-center py-2 px-4">
         <Heading4>Logo</Heading4>
-        <NotificationButton notificationsCount={100} />
+        <NotificationButton notificationsCount={10} />
       </div>
       <div className="px-4">
         {/* TODO: Replace with a Button component */}
-        <button className="text-center w-full border mb-2">+ Buy new proxies</button>
+        <Button className="w-full" size="small" variant="outline">
+          <PlusIcon className="size-4 stroke-grey-800" /> Buy new proxies
+        </Button>
       </div>
       <nav className="flex flex-col px-4 gap-y-4">
         <SidebarGroup groupItems={sidebarGroups.main} />

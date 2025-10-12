@@ -6,7 +6,7 @@
 @import '../styles/base.css';
 @import '../styles/variables.css';
 
-@custom-variant dark (&: is(.dark *));
+@custom-variant dark (&:is(.dark *));
 
 @media (prefers-color-scheme: dark) {
   html {
