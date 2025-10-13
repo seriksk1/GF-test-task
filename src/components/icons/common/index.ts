@@ -5,3 +5,4 @@ export * from './live-log-icon';
 export * from './plus-icon';
 export * from './chevron-left-icon';
 export * from './circle-check-filled-icon';
+export * from './four-dots-icon';

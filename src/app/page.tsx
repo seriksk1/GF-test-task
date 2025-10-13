@@ -11,14 +11,19 @@ import {
   Heading5,
   Heading6,
   Input,
-  Paragraph,
   ParagraphSmall,
   Subtitle,
   SubtitleSmall,
 } from '@/components/ui';
-import { ChevronDown, Edit, Flag } from 'lucide-react';
+import { ChevronDown, Flag } from 'lucide-react';
 import { Metadata } from 'next';
 import Image from 'next/image';
+import React from 'react';
+import { ProductQuantitySelector } from './_sections';
+import {
+  mockSubscriptionCycleOptions,
+  SubscriptionCycleOptions,
+} from './_sections/subscription-cycle-options';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -126,53 +131,8 @@ export default function Home() {
                 </table>
               </div>
 
-              {/* Range component */}
-              <div className="flex flex-col gap-6">
-                <div className="flex flex-col gap-y-2">
-                  <div className="relative h-2 w-full bg-grey-100 rounded-full overflow-hidden">
-                    <div className="absolute top-0 left-0 h-full w-1/10 bg-brand-500"></div>
-                  </div>
-                  <div className="flex justify-between">
-                    {[10, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000].map(
-                      (numberOfIps) => (
-                        <ParagraphSmall
-                          key={numberOfIps}
-                          className="text-grey-500 font-medium tracking-[-0.2px]"
-                        >
-                          {numberOfIps}
-                        </ParagraphSmall>
-                      )
-                    )}
-                  </div>
-                </div>
-                <Button className="text-brand-500" variant="outline">
-                  <Edit className="size-4 stroke-brand-500" /> Enter a custom quantity
-                </Button>
-              </div>
-
-              {/* Subscription cycle component */}
-              <div className="flex flex-col gap-y-2">
-                <SubtitleSmall>Select subscription cycle</SubtitleSmall>
-                <div className="flex px-4 py-3 bg-base-white border border-grey-300 gap-x-2 items-center rounded-[4px] cursor-pointer">
-                  {/* Radio button component */}
-                  <div className="border border-grey-300 bg-base-white size-4 rounded-full" />
-                  <Subtitle className="text-grey-800 text-base">1 month</Subtitle>
-                </div>
-                <div className="flex px-4 py-3 bg-brand-50 outline-2 outline-brand-500 gap-x-2 items-center rounded-[4px] cursor-pointer">
-                  {/* Radio button component */}
-                  <div className="border-5 border-brand-500 bg-base-white size-4 rounded-full" />
-                  <Subtitle className="text-grey-800 text-base">3 months</Subtitle>
-                </div>
-                <div className="flex px-4 py-3 bg-base-white border border-grey-300 gap-x-2 items-center rounded-[4px] cursor-pointer">
-                  {/* Radio button component */}
-                  <div className="border border-grey-300 bg-base-white size-4 rounded-full" />
-                  <Subtitle className="text-grey-800 text-base">12 months</Subtitle>
-                  {/* Badge component */}
-                  <Caption className="font-medium text-green-80 py-0.5 px-1.5 outline outline-green-300 bg-green-50 rounded-[4px]">
-                    Save 20%
-                  </Caption>
-                </div>
-              </div>
+              <ProductQuantitySelector />
+              <SubscriptionCycleOptions options={mockSubscriptionCycleOptions} />
 
               <div className="flex flex-col gap-y-2">
                 <SubtitleSmall>Select location</SubtitleSmall>
