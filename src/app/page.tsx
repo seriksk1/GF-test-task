@@ -41,7 +41,7 @@ export default function Home() {
       className={cn(
         'flex flex-col gap-y-6 w-full gap-x-6 overflow-y-auto px-12 py-6 bg-(--bg-color-02)',
         'max-xl:px-6',
-        'max-md:px-4'
+        'max-md:px-4 max-md: gap-y-4'
       )}
     >
       <Button className="text-grey-800" variant="outline" size="small">

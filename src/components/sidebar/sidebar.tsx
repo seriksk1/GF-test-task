@@ -16,7 +16,12 @@ export function Sidebar({ className }: { className?: string }) {
   }
 
   return (
-    <aside className={cn('h-screen min-w-70 border-r flex flex-col gap-y-4', className)}>
+    <aside
+      className={cn(
+        'h-screen min-w-70 border-r flex flex-col gap-y-4 overflow-y-auto',
+        className
+      )}
+    >
       <SidebarHeader />
       <SidebarContent />
       <SidebarFooter />
