@@ -1,10 +1,10 @@
 import { SubscriptionCycleOption } from './types';
 
 export const mockSubscriptionCycleOptions: SubscriptionCycleOption[] = [
-  { period: '1 month' },
-  { period: '3 months' },
+  { monthsPeriod: 1 },
+  { monthsPeriod: 3 },
   {
-    period: '12 months',
+    monthsPeriod: 12,
     discountPercentage: 20,
   },
 ];

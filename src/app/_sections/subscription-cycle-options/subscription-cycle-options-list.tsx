@@ -16,12 +16,12 @@ export function SubscriptionCycleOptionsList({
 }: SubscriptionCycleOptionsListProps) {
   return (
     <div className="flex flex-col gap-y-2">
-      <RadioGroup value={selectedOption.period}>
+      <RadioGroup value={String(selectedOption.monthsPeriod)}>
         {options.map((option) => (
           <SubscriptionCycleOptionItem
-            key={option.period}
+            key={option.monthsPeriod}
             option={option}
-            isSelected={selectedOption.period === option.period}
+            isSelected={selectedOption.monthsPeriod === option.monthsPeriod}
             onOptionSelect={onOptionSelect}
           />
         ))}

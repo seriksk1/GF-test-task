@@ -1,6 +1,6 @@
 import { SubscriptionPeriod } from '../order-summary';
 
 export interface SubscriptionCycleOption {
-  period: SubscriptionPeriod;
+  monthsPeriod: SubscriptionPeriod;
   discountPercentage?: number;
 }

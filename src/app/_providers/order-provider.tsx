@@ -43,7 +43,10 @@ export function OrderProvider({ children }: PropsWithChildren) {
 
   function recalculateOrder(state: OrderContextStateValues): number {
     return getOrderTotalWithDiscounts({
-      subTotal: getIpBundlePriceByQuantity(state.ipsQuantity) * state.ipsQuantity,
+      subTotal:
+        getIpBundlePriceByQuantity(state.ipsQuantity) *
+        state.ipsQuantity *
+        state.subscription.monthsPeriod,
       promoCodeDiscountPercentage: state.promoCode?.discountPercentage,
       subscriptionDiscountPercentage: state.subscription.discountPercentage,
     });

@@ -28,7 +28,10 @@ export function OrderSummary({ subtitle, benefits = [] }: OrderSummaryProps) {
     { label: 'Quantity of IP', value: `${ipsQuantity} IPs` },
     { label: 'Location', value: datacenterLocation.name },
     { label: 'Price per IP', value: `$${pricePerIp.toFixed(2)}` },
-    { label: 'Subscription period', value: subscription.period },
+    {
+      label: 'Subscription period',
+      value: `${subscription.monthsPeriod} month${subscription.monthsPeriod > 1 ? 's' : ''}`,
+    },
   ];
 
   return (

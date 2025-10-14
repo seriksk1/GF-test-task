@@ -9,4 +9,4 @@ export interface OrderOption {
   label: string;
 }
 
-export type SubscriptionPeriod = '1 month' | '3 months' | '12 months';
+export type SubscriptionPeriod = 1 | 3 | 12;
