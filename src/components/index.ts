@@ -1,3 +1,4 @@
-export * from './sidebar/sidebar';
+export * from './sidebar';
 export * from './quantity-slider';
-export * from './dropdown/dropdown';
+export * from './dropdown';
+export * from './select-country';

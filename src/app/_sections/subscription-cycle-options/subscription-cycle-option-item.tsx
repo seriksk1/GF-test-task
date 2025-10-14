@@ -14,7 +14,7 @@ export function SubscriptionCycleOptionItem({
   isSelected,
   onOptionSelect,
 }: SubscriptionCycleOptionItemProps) {
-  const { badgeText, text } = option;
+  const { discountPercentage, period: text } = option;
 
   function handleOptionSelect() {
     onOptionSelect(option);
@@ -31,9 +31,9 @@ export function SubscriptionCycleOptionItem({
       {/* Radio button component */}
       <RadioGroupItem value={text} />
       <Subtitle className="text-grey-800 text-base">{text}</Subtitle>
-      {badgeText && (
+      {discountPercentage && (
         <Badge variant="success" size="small">
-          {badgeText}
+          {discountPercentage}%
         </Badge>
       )}
     </div>

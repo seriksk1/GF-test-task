@@ -1,44 +1,55 @@
 import {
+  AmericanExpressIcon,
   ChevronLeftIcon,
-  CircleCheckFilledIcon,
   DatacenterProxiesIcon,
+  DinersClubIcon,
+  MastercardIcon,
+  UnionPayIcon,
+  VisaIcon,
 } from '@/components/icons';
-import {
-  Button,
-  Heading4,
-  Heading5,
-  Input,
-  Paper,
-  ParagraphSmall,
-  Subtitle,
-  SubtitleSmall,
-} from '@/components/ui';
+import { Button, Heading4, Paper, ParagraphSmall, SubtitleSmall } from '@/components/ui';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import React from 'react';
 import {
   BundleDiscounts,
-  ProductQuantitySelector,
-  SelectCountry,
-  SubscriptionBenefits,
-} from './_sections';
-import {
   mockSubscriptionCycleOptions,
+  OrderSummary,
+  ProductQuantitySelector,
+  DatacenterLocationSelection,
+  SubscriptionBenefits,
   SubscriptionCycleOptions,
-} from './_sections/subscription-cycle-options';
+} from './_sections';
+import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
   title: 'Home',
   description: 'GF Home page',
 };
 
+const paymentImages = [
+  VisaIcon,
+  MastercardIcon,
+  AmericanExpressIcon,
+  DinersClubIcon,
+  UnionPayIcon,
+];
+
 export default function Home() {
   return (
-    <main className="flex flex-col gap-y-6 w-full gap-x-6 overflow-y-auto px-12 py-6 bg-(--bg-color-02)">
+    <main
+      className={cn(
+        'flex flex-col gap-y-6 w-full gap-x-6 overflow-y-auto px-12 py-6 bg-(--bg-color-02)',
+        'max-xl:px-6',
+        'max-md:px-4'
+      )}
+    >
       <Button className="text-grey-800" variant="outline" size="small">
         <ChevronLeftIcon className="size-4" /> Back to all
       </Button>
-      <div className="grid grid-cols-[7fr_3fr] gap-x-6">
+      <div
+        className={cn('grid grid-cols-[7fr_3fr] gap-x-6', 'max-xl:flex flex-col gap-y-6')}
+      >
         {/* Left side */}
         <div className="flex flex-col gap-y-6">
           <Paper>
@@ -63,138 +74,36 @@ export default function Home() {
             <BundleDiscounts />
             <ProductQuantitySelector />
             <SubscriptionCycleOptions options={mockSubscriptionCycleOptions} />
-            <SelectCountry />
+            <DatacenterLocationSelection />
           </Paper>
           <SubscriptionBenefits />
         </div>
-
         {/* Right side */}
         <div className="flex flex-col w-full gap-y-4">
           {/* Section component */}
           <Paper>
             {/* Order component */}
-            <div className="flex flex-col gap-y-4">
-              <Heading5>Order summary</Heading5>
-              <div className="flex flex-col gap-y-4">
-                <Subtitle>Datacenter Proxies</Subtitle>
-
-                {/* Benefits component */}
-                <ul className="flex flex-col gap-y-2">
-                  <li className="flex gap-x-2">
-                    <CircleCheckFilledIcon className="size-5" />
-                    <ParagraphSmall className="text-grey-600 font-medium flex-1">
-                      3-day Trial
-                    </ParagraphSmall>
-                  </li>
-                  <li className="flex gap-x-2">
-                    <CircleCheckFilledIcon className="size-5" />
-                    <ParagraphSmall className="text-grey-600 font-medium flex-1">
-                      Customer Success Manager
-                    </ParagraphSmall>
-                  </li>
-                </ul>
-
-                {/* Picked options component */}
-                <ul className="flex flex-col gap-y-2">
-                  <li className="flex justify-between items-center gap-x-4">
-                    <ParagraphSmall className="font-medium text-grey-600">
-                      Quantity of IP
-                    </ParagraphSmall>
-                    <ParagraphSmall className="font-medium text-grey-800 text-right">
-                      100 IPs
-                    </ParagraphSmall>
-                  </li>
-                  <li className="flex justify-between items-center gap-x-4">
-                    <ParagraphSmall className="font-medium text-grey-600">
-                      Location
-                    </ParagraphSmall>
-                    <ParagraphSmall className="font-medium text-grey-800 text-right">
-                      United Kingdom
-                    </ParagraphSmall>
-                  </li>
-                  <li className="flex justify-between items-center gap-x-4">
-                    <ParagraphSmall className="font-medium text-grey-600">
-                      Price per IP
-                    </ParagraphSmall>
-                    <ParagraphSmall className="font-medium text-grey-800 text-right">
-                      $2.50
-                    </ParagraphSmall>
-                  </li>
-                  <li className="flex justify-between items-center gap-x-4">
-                    <ParagraphSmall className="font-medium text-grey-600">
-                      Subscription period
-                    </ParagraphSmall>
-                    <ParagraphSmall className="font-medium text-grey-800 text-right">
-                      12 months
-                    </ParagraphSmall>
-                  </li>
-                </ul>
-
-                {/* Discount*/}
-                <div className="flex pt-4 gap-x-2">
-                  <Input name="discount" placeholder="Add discount code" />
-                  <Button variant="outline" size="small">
-                    Apply
-                  </Button>
-                </div>
-
-                {/* Total */}
-                <div className="flex items-center justify-between pt-4 border-t-1 border-grey-300">
-                  <SubtitleSmall className="text-grey-700">Total</SubtitleSmall>
-                  <Heading4 className="font-medium text-grey-800">$140.00</Heading4>
-                </div>
-              </div>
-            </div>
+            <OrderSummary
+              subtitle="Datacenter Proxies"
+              benefits={['3-day Trial', 'Customer Success Manager']}
+            />
           </Paper>
           <Button className="w-full" size="large">
             Continue to checkout
           </Button>
+          {/* Payment options (images) */}
           <div className="flex justify-center grayscale-100">
-            <div className="w-10 h-6 px-2.5">
-              <Image
-                className="w-full h-full"
-                width={40}
-                height={0}
-                src="icons/payment/visa-icon.svg"
-                alt="Visa"
-              />
-            </div>
-            <div className="w-10 h-6 px-2.5">
-              <Image
-                className="w-full h-full"
-                width={40}
-                height={0}
-                src="icons/payment/mastercard-icon.svg"
-                alt="Mastercard"
-              />
-            </div>
-            <div className="w-10 h-6 px-2.5">
-              <Image
-                className="w-full h-full"
-                width={40}
-                height={24}
-                src="icons/payment/american-express-icon.svg"
-                alt="American Express"
-              />
-            </div>
-            <div className="w-10 h-6 px-2.5">
-              <Image
-                className="w-full h-full"
-                width={40}
-                height={0}
-                src="icons/payment/dinersclub-icon.svg"
-                alt="Diners Club"
-              />
-            </div>
-            <div className="w-10 h-6 px-2.5">
-              <Image
-                className="w-full h-full"
-                width={40}
-                height={0}
-                src="icons/payment/unionpay-icon.svg"
-                alt="UnionPay"
-              />
-            </div>
+            {paymentImages.map((paymentImage, i) => (
+              <div key={i} className="w-10 h-6 px-2.5">
+                <Image
+                  className="w-full h-full"
+                  width={40}
+                  height={0}
+                  src={paymentImage}
+                  alt="payment option"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

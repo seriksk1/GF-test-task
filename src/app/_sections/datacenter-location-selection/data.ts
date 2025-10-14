@@ -1,4 +1,4 @@
-import { CountryOption } from './types';
+import { DatacenterLocation } from './types';
 import {
   UnitedKingdomFlagIcon,
   UnitedStatesFlagIcon,
@@ -12,7 +12,7 @@ import {
   WorldFlagIcon,
 } from '@/components/icons';
 
-export const countries: CountryOption[] = [
+export const datacenterLocations: DatacenterLocation[] = [
   { countryCode: 'UK', name: 'United Kingdom', icon: UnitedKingdomFlagIcon },
   { countryCode: 'US', name: 'United States', icon: UnitedStatesFlagIcon },
   { countryCode: 'DE', name: 'Germany', icon: GermanyFlagIcon },

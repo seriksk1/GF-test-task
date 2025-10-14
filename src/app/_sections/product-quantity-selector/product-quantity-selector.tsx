@@ -1,42 +1,58 @@
 'use client';
 
+import { useOrder } from '@/app/_providers';
 import { QuantitySlider } from '@/components';
 import { SubtitleSmall, Button, Input } from '@/components/ui';
 import { Edit } from 'lucide-react';
 import React from 'react';
+import { ipQuantitySteps } from './data';
+import { getIpBundlePriceByQuantity } from '../order-summary';
 
-const quantitySteps = [10, 50, 100, 200, 300, 500, 600, 700, 800, 900, 1000];
-const MIN_QUANTITY = 1;
-const MAX_QUANTITY = 99999;
+const MIN_QUANTITY = 10;
+const MAX_QUANTITY = 1000;
 
-export function ProductQuantitySelector() {
-  const [ipsQuantity, setIpsQuantity] = React.useState(quantitySteps[0]);
-  const [customQuantity, setCustomQuantity] = React.useState(ipsQuantity);
+interface ProductQuantitySelectorProps {
+  maxQuantity?: number;
+  minQuantity?: number;
+}
+
+export function ProductQuantitySelector({
+  maxQuantity = MAX_QUANTITY,
+  minQuantity = MIN_QUANTITY,
+}: ProductQuantitySelectorProps) {
+  const { ipsQuantity: orderIpsQuantity, changeOrder } = useOrder();
+
   const [shouldDisplayCustomQuantity, setDisplayCustomQuantity] =
     React.useState<boolean>(false);
 
-  function onCustomQuantityChange(e: React.ChangeEvent<HTMLInputElement>) {
-    let newValue = parseInt(e.target.value, 10);
+  function onQuantityChange(quantity: number) {
+    const bundlePrice = getIpBundlePriceByQuantity(quantity);
+    changeOrder({
+      ipsQuantity: quantity,
+      pricePerIp: bundlePrice,
+    });
+  }
 
-    if (!newValue || newValue < MIN_QUANTITY) {
-      newValue = MIN_QUANTITY;
+  function onCustomQuantityChange(e: React.FocusEvent<HTMLInputElement>) {
+    let newValue = parseInt(e.currentTarget.value, 10);
+
+    if (!newValue || newValue < minQuantity) {
+      newValue = minQuantity;
     }
 
-    if (newValue > MAX_QUANTITY) {
-      newValue = MAX_QUANTITY;
+    if (newValue > maxQuantity) {
+      newValue = maxQuantity;
     }
 
-    setCustomQuantity(newValue);
+    e.currentTarget.value = String(newValue);
+    onQuantityChange(newValue);
   }
 
   function onSelectionTypeButtonClick() {
-    setDisplayCustomQuantity((prev) => {
-      if (!prev) {
-        setCustomQuantity(ipsQuantity);
-      }
-
-      return !prev;
-    });
+    if (shouldDisplayCustomQuantity) {
+      onQuantityChange(ipQuantitySteps[0]);
+    }
+    setDisplayCustomQuantity((prev) => !prev);
   }
 
   return (
@@ -47,10 +63,10 @@ export function ProductQuantitySelector() {
             <SubtitleSmall>Custom quantity</SubtitleSmall>
             <Input
               className="flex-1"
-              value={customQuantity}
+              defaultValue={orderIpsQuantity}
               min={MIN_QUANTITY}
               max={MAX_QUANTITY}
-              onChange={onCustomQuantityChange}
+              onBlur={onCustomQuantityChange}
               placeholder="Enter IPs quantity..."
             />
           </div>
@@ -66,10 +82,10 @@ export function ProductQuantitySelector() {
         <>
           <div className="pt-10 pb-4">
             <QuantitySlider
-              quantitySteps={quantitySteps}
-              value={ipsQuantity}
-              tooltip={`${ipsQuantity} IP`}
-              onChange={setIpsQuantity}
+              quantitySteps={ipQuantitySteps}
+              value={orderIpsQuantity}
+              tooltip={`${orderIpsQuantity} IP`}
+              onChange={onQuantityChange}
             />
           </div>
           <Button

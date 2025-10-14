@@ -1,4 +1,6 @@
+import { SubscriptionPeriod } from '../order-summary';
+
 export interface SubscriptionCycleOption {
-  text: string;
-  badgeText?: string;
+  period: SubscriptionPeriod;
+  discountPercentage?: number;
 }

@@ -7,3 +7,5 @@ export * from './radio-group';
 export * from './table';
 export * from './select';
 export * from './paper';
+export * from './benefit';
+export * from './separator';

@@ -4,16 +4,19 @@ import { SubtitleSmall } from '@/components/ui';
 import React from 'react';
 import { SubscriptionCycleOption } from './types';
 import { SubscriptionCycleOptionsList } from './subscription-cycle-options-list';
+import { useOrder } from '@/app/_providers';
 
 export interface SubscriptionCycleOptionsProps {
   options: SubscriptionCycleOption[];
 }
 
 export function SubscriptionCycleOptions({ options }: SubscriptionCycleOptionsProps) {
-  const [selectedOption, setSelectedOptions] = React.useState(options[1]);
+  const { changeOrder } = useOrder();
+  const [selectedOption, setSelectedOption] = React.useState(options[1]);
 
   function onOptionSelect(option: SubscriptionCycleOption) {
-    setSelectedOptions(option);
+    setSelectedOption(option);
+    changeOrder({ subscription: option });
   }
 
   return (

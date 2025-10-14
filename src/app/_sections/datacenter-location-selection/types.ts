@@ -10,7 +10,7 @@ export type CountryCode =
   | 'BR'
   | 'WR';
 
-export interface CountryOption {
+export interface DatacenterLocation {
   countryCode: CountryCode;
   name: string;
   icon: string;

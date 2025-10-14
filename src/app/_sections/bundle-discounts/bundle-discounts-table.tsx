@@ -6,7 +6,7 @@ import {
   TableHead,
   TableCell,
 } from '@/components/ui';
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 interface BundleDiscountsTableProps {
   tableHeaders?: string[];
@@ -18,23 +18,21 @@ export function BundleDiscountsTable({
   tableRow = ['Price per IP', '$3.00', '$2.75', '$2.50', '$2.25'],
 }: BundleDiscountsTableProps) {
   const numberOfColumns = tableHeaders.length;
+  const rowStyles: CSSProperties = {
+    gridTemplateColumns: `100px repeat(${numberOfColumns - 1}, 1fr)`,
+  };
+
   return (
     <Table>
       <TableHeader>
-        <TableRow
-          className={`grid grid-cols-[100px_repeat(${numberOfColumns - 1},_1fr)]`}
-        >
-          <TableHead>IPs</TableHead>
-          <TableHead>10-24</TableHead>
-          <TableHead>25-49</TableHead>
-          <TableHead>50-99</TableHead>
-          <TableHead>100+</TableHead>
+        <TableRow className="grid" style={rowStyles}>
+          {tableHeaders.map((header) => (
+            <TableHead key={header}>{header}</TableHead>
+          ))}
         </TableRow>
       </TableHeader>
       <TableBody>
-        <TableRow
-          className={`grid grid-cols-[100px_repeat(${numberOfColumns - 1},_1fr)]`}
-        >
+        <TableRow className="grid" style={rowStyles}>
           {tableRow.map((cell) => (
             <TableCell key={cell}>{cell}</TableCell>
           ))}
