@@ -1,4 +1,4 @@
-import { Subtitle, Caption } from '@/components/ui';
+import { Subtitle, Badge, RadioGroupItem } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import React from 'react';
 import { SubscriptionCycleOption } from './types';
@@ -29,17 +29,12 @@ export function SubscriptionCycleOptionItem({
       onClick={handleOptionSelect}
     >
       {/* Radio button component */}
-      <div
-        className={cn('border border-grey-300 bg-base-white size-4 rounded-full', {
-          'border-5 border-brand-500': isSelected,
-        })}
-      />
+      <RadioGroupItem value={text} />
       <Subtitle className="text-grey-800 text-base">{text}</Subtitle>
-      {/* Badge component */}
       {badgeText && (
-        <Caption className="font-medium text-green-80 py-0.5 px-1.5 outline outline-green-300 bg-green-50 rounded-[4px]">
+        <Badge variant="success" size="small">
           {badgeText}
-        </Caption>
+        </Badge>
       )}
     </div>
   );

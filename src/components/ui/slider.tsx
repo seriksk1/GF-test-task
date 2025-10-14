@@ -59,7 +59,7 @@ function Slider({
           className={cn(
             'relative flex bg-base-white cursor-grab h-fit w-fit p-1.5 border-1 border-brand-500 rounded-[3px]',
             'active:cursor-grabbing active:border-brand-900 active:outline-none',
-            'focus-visible:border-brand-900 focus-visible:border-1 focus-visible:outline-none'
+            'focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]'
           )}
         >
           <FourDotsIcon className={cn('size-2.5')} />

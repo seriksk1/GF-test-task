@@ -6,3 +6,6 @@ export * from './plus-icon';
 export * from './chevron-left-icon';
 export * from './circle-check-filled-icon';
 export * from './four-dots-icon';
+export * from './chevron-down-icon';
+export * from './chevron-up-icon';
+export * from './close-icon';

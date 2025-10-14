@@ -46,13 +46,12 @@ export function ProductQuantitySelector() {
           <div className="flex flex-col gap-y-2">
             <SubtitleSmall>Custom quantity</SubtitleSmall>
             <Input
-              className="flex-1 pl-3 pr-2 py-1 body2 placeholder:font-medium placeholder:text-grey-500 rounded-[4px] outline outline-grey-300"
+              className="flex-1"
               value={customQuantity}
               min={MIN_QUANTITY}
               max={MAX_QUANTITY}
               onChange={onCustomQuantityChange}
               placeholder="Enter IPs quantity..."
-              type="number"
             />
           </div>
           <Button

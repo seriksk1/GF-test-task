@@ -1,62 +1,74 @@
 @layer components {
   .h1 {
-    font-size: 3em;
+    font-size: 48px;
     line-height: 1.167;
     font-style: normal;
+    letter-spacing: -1px;
   }
   .h2 {
-    font-size: 2.5em;
+    font-size: 40px;
     line-height: 1.2;
     font-style: normal;
+    letter-spacing: -0.5px;
   }
   .h3 {
-    font-size: 2em;
+    font-size: 32px;
     line-height: 1.25;
     font-style: normal;
+    letter-spacing: 0;
   }
   .h4 {
-    font-size: 1.5em;
+    font-size: 24px;
     line-height: 1.33;
     font-style: normal;
+    letter-spacing: 0;
   }
   .h5 {
-    font-size: 1.25em;
+    font-size: 20px;
     line-height: 1.4;
     font-style: normal;
+    letter-spacing: 0;
   }
   .h6 {
-    font-size: 1.125em;
+    font-size: 18px;
     line-height: 1.33;
     font-style: normal;
+    letter-spacing: 0;
   }
   .subtitle1 {
-    font-size: 1.125em;
+    font-size: 18px;
     line-height: 1.33;
     font-style: normal;
+    letter-spacing: 0.2px;
   }
   .subtitle2 {
-    font-size: 0.875em;
+    font-size: 14px;
     line-height: 1.43;
     font-style: normal;
+    letter-spacing: 0.2px;
   }
   .body1 {
-    font-size: 1em;
+    font-size: 16px;
     line-height: 1.5;
     font-style: normal;
+    letter-spacing: 0;
   }
   .body2 {
-    font-size: 0.875em;
+    font-size: 14px;
     line-height: 1.43;
     font-style: normal;
+    letter-spacing: 0;
   }
   .caption {
-    font-size: 0.75em;
+    font-size: 12px;
     line-height: 1.33;
     font-style: normal;
+    letter-spacing: 0.2px;
   }
   .typography-overline {
-    font-size: 0.75em;
+    font-size: 12px;
     line-height: 1.67;
     font-style: normal;
+    letter-spacing: 0.7px;
   }
 }
