@@ -1,8 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
+## Run the development server:
 
 ```bash
 npm run dev
@@ -14,23 +10,67 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Run tests:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run test
+# or
+yarn test
+# or
+pnpm test
+# or
+bun test
+```
 
-## Learn More
+## Run Storybook:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run storybook
+# or
+yarn storybook
+# or
+pnpm storybook
+# or
+bun storybook
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 1. Project structure:
+I would use a module(feature)-based approach with all you need in one place, so you don't need to search specific file everywhere. 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+src/
+ ├─ app/                 # Pages Next.js (app router). Large pages may be decomposed into sections (as non-shared components)  
+ ├─ components/          # Shared + Small components (reusable components with some logic, may combine a few shared components)
+ ├─ modules/             # Modules (Separated features) with business logic (Auth, Order, Cart)
+ ├─ hooks/               # Custom React-hooks
+ ├─ lib/                 # Utils, configs, API services
+ ├─ styles/              # Global styles & themes
+ └─ types/               # Global Typescript types
+```
 
-## Deploy on Vercel
+# 2. Working with API in a large project
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+In a large project, I would isolate all API work in a separate layer, for example, in src/lib/api or src/services.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+I would use:
+* Axios or fetch-wrapper with basic configuration (base URL, error handlers, interceptors).
+* React Query for caching, refetching, optimistic updates and convenient query state management, error handling.
+
+This approach ensures stability, reuse of queries and easy replacements in case of the backend changes.
+
+# 3. Scaling pages, functionality, blocks
+
+For scaling, I would follow the principles of SOLID:
+* Each page is a set of independent blocks (sections) that can be reused.
+* New pages are added as separate modules in app/, while business logic and components stay isolated.
+* Shared styles and design system (Tailwind + CVA + Shadcn) ensure consistency.
+* Over time, you can integrate Storybook for visual testing of components, Vitest for unit tests, also Playwright for the E2E-tests
+
+# 4. Main risks in the front-end
+* Increased state complexity when scaling without centralized management (can be solved by using React Query / Zustand / Redux Toolkit).
+* UI inconsistency if the design system is not supported (must follow design system rules and theme patterns, + good to have a clear component library with the good tests coverage and stories).
+* API instability that can break the front-end (everything must be typed properly, errors must be handled, also good to have some real-time analytics (logs) like Sentry.io)
+* Bundle overloading with uncontrolled imports (can be solved by using lazy-loading and code-splitting)
+* Project structure inconsistency / large files / zombie code (proper ESLint config + refactoring sessions once in a while)
