@@ -9,6 +9,10 @@
   /* Concept */
   --concept-black: #1a1f3b;
 
+  /* Background colors */
+  --bg-color-02: #fafafa;
+  --bg-color-01: var(--color-base-white);
+
   /* Brand (Primary) */
   --brand-50: #eeedfd;
   --brand-100: #cac6f9;
