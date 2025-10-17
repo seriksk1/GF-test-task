@@ -45,7 +45,9 @@ const eslintConfig = [
             ['^react$', '^next', '^@?\\w'],
             // Aliased imports, often starting with `~` or a specific alias.
             ['^~'],
-            // Imports from parent directories, starting with `../`.
+            // Imports from public directory.
+            ['^public/.*$'],
+            // Imports from parent directories, starting with `../` or `public/`.
             ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
             // Imports from the current directory, starting with `./`.
             ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],

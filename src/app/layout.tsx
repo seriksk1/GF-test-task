@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
 import { Space_Grotesk } from 'next/font/google';
+import Image from 'next/image';
+
+import SupportChatIcon from 'public/icons/support/support-chat-icon.svg';
 
 import './globals.css';
 
-import { Sidebar } from '@/components';
+import { Button, Sidebar } from '@/components';
 import OrderProvider from '@/contexts/order-context';
 import { cn } from '@/lib/utils';
 
@@ -34,6 +37,14 @@ export default function RootLayout({
             {children}
           </div>
         </OrderProvider>
+        {/* Support chat */}
+        <Button
+          className="absolute bottom-6 right-6 size-12 p-0 transition-opacity rounded-full hover:opacity-80 shadow-md"
+          variant="text"
+          size="icon"
+        >
+          <Image className="w-full h-full" src={SupportChatIcon} alt="Support chat" />
+        </Button>
       </body>
     </html>
   );
