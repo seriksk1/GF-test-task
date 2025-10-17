@@ -1,9 +1,11 @@
-import { Subtitle, Badge, RadioGroupItem } from '@/components/ui';
-import { cn } from '@/lib/utils';
 import React from 'react';
+
 import { SubscriptionCycleOption } from './types';
 
-export interface SubscriptionCycleOptionItemProps {
+import { Badge, RadioGroupItem, Subtitle } from '@/components';
+import { cn } from '@/lib/utils';
+
+interface SubscriptionCycleOptionItemProps {
   option: SubscriptionCycleOption;
   isSelected: boolean;
   onOptionSelect: (option: SubscriptionCycleOption) => void;

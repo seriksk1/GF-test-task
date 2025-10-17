@@ -1,5 +1,10 @@
 'use client';
 
+import React from 'react';
+import Image from 'next/image';
+
+import { DropdownOption } from './types';
+
 import {
   ParagraphSmall,
   Select,
@@ -7,10 +12,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui';
-import Image from 'next/image';
-import React from 'react';
-import { DropdownOption } from './types';
+} from '@/components';
 
 interface DropdownProps {
   defaultOption: DropdownOption;

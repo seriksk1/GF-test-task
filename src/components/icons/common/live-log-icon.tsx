@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { DefaultIconProps } from '../types';
 
 export function LiveLogIcon({ className, fill = '#00B67A', ...props }: DefaultIconProps) {

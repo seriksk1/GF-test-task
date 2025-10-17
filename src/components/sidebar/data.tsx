@@ -1,21 +1,22 @@
-import { SidebarGroupItem } from './types';
 import {
+  AffiliateProgramIcon,
+  AllProductsIcon,
   ApiKeysIcon,
   ApiRequestsIcon,
+  BillingIcon,
+  ChevronRightIcon,
   DashboardIcon,
+  HelpIcon,
+  LiveLogIcon,
   LiveLogMonitorIcon,
   ObservabilityOverviewIcon,
   ProxyListIcon,
+  ResellersStatisticsIcon,
   SummaryIcon,
   UserSettingsIcon,
-  AllProductsIcon,
-  ResellersStatisticsIcon,
-  AffiliateProgramIcon,
-  BillingIcon,
-  HelpIcon,
-  ChevronRightIcon,
-  LiveLogIcon,
 } from '../icons';
+
+import { SidebarGroupItem } from './types';
 
 export const mainGroup: SidebarGroupItem[] = [
   {

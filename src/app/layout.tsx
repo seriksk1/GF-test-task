@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import { Space_Grotesk } from 'next/font/google';
-import { Sidebar } from '@/components';
-import { OrderProvider } from './_providers';
+
 import './globals.css';
+
+import { Sidebar } from '@/components';
+import OrderProvider from '@/contexts/order-context';
 import { cn } from '@/lib/utils';
 
 const spaceGrotesk = Space_Grotesk({

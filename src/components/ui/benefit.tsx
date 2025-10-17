@@ -1,6 +1,9 @@
 import React, { HTMLProps, PropsWithChildren } from 'react';
+
 import { CircleCheckFilledIcon } from '../icons';
+
 import { ParagraphSmall } from './typography';
+
 import { cn } from '@/lib/utils';
 
 export function BenefitItem({ children }: PropsWithChildren) {

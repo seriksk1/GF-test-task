@@ -1,8 +1,10 @@
 import React from 'react';
-import { SidebarGroup } from './sidebar-group';
-import { sidebarGroups } from './data';
-import { Button, Separator } from '../ui';
+
 import { PlusIcon } from '../icons';
+import { Button, Separator } from '../ui';
+
+import { sidebarGroups } from './data';
+import { SidebarGroup } from './sidebar-group';
 
 export function SidebarContent() {
   return (

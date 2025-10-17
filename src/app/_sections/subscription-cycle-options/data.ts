@@ -1,6 +1,6 @@
-import { SubscriptionCycleOption } from './types';
+import { SubscriptionCycleOption as SubscriptionCycle } from './types';
 
-export const mockSubscriptionCycleOptions: SubscriptionCycleOption[] = [
+export const allSubscriptionCycles: SubscriptionCycle[] = [
   { monthsPeriod: 1 },
   { monthsPeriod: 3 },
   {
@@ -8,3 +8,5 @@ export const mockSubscriptionCycleOptions: SubscriptionCycleOption[] = [
     discountPercentage: 20,
   },
 ];
+
+export const defaultSubscriptionCycle: SubscriptionCycle = allSubscriptionCycles[1];

@@ -1,6 +1,8 @@
 import React from 'react';
-import { NotificationButton } from './notification-button';
+
 import { Heading4 } from '../ui';
+
+import { NotificationButton } from './notification-button';
 
 export function SidebarHeader() {
   return (

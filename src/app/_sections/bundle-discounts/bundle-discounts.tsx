@@ -1,14 +1,16 @@
 import React from 'react';
+
 import { BundleDiscountsTable } from './bundle-discounts-table';
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
   SubtitleSmall,
-} from '@/components/ui';
+} from '@/components';
 
-export function BundleDiscounts() {
+export default function BundleDiscounts() {
   return (
     <Accordion type="single" defaultValue="table-1" collapsible>
       <AccordionItem value="table-1">

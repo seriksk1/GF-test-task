@@ -1,12 +1,14 @@
 'use client';
 
 import React from 'react';
-import { SidebarFooter } from './sidebar-footer';
-import { SidebarContent } from './sidebar-content';
-import { SidebarHeader } from './sidebar-header';
+
 import { MobileSidebarHeader } from './mobile-sidebar-header';
-import { cn } from '@/lib/utils';
+import { SidebarContent } from './sidebar-content';
+import { SidebarFooter } from './sidebar-footer';
+import { SidebarHeader } from './sidebar-header';
+
 import { useIsMobile } from '@/hooks';
+import { cn } from '@/lib/utils';
 
 export function Sidebar({ className }: { className?: string }) {
   const isMobile = useIsMobile();

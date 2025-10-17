@@ -1,9 +1,3 @@
-export interface IpBundle {
-  from: number;
-  to: number;
-  price: number;
-}
-
 export interface OrderOption {
   value: string;
   label: string;

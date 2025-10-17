@@ -1,9 +1,11 @@
 import React from 'react';
-import { SubscriptionCycleOption } from './types';
-import { SubscriptionCycleOptionItem } from './subscription-cycle-option-item';
-import { RadioGroup } from '@/components/ui';
 
-export interface SubscriptionCycleOptionsListProps {
+import { SubscriptionCycleOptionItem } from './subscription-cycle-option-item';
+import { SubscriptionCycleOption } from './types';
+
+import { RadioGroup } from '@/components';
+
+interface SubscriptionCycleOptionsListProps {
   options: SubscriptionCycleOption[];
   selectedOption: SubscriptionCycleOption;
   onOptionSelect: (option: SubscriptionCycleOption) => void;

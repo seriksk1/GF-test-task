@@ -1,10 +1,10 @@
 // For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
-import storybook from 'eslint-plugin-storybook';
+import { FlatCompat } from '@eslint/eslintrc';
 import prettier from 'eslint-plugin-prettier';
-
+import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
+import storybook from 'eslint-plugin-storybook';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { FlatCompat } from '@eslint/eslintrc';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -32,6 +32,29 @@ const eslintConfig = [
           trailingComma: 'es5',
         },
       ],
+    },
+  },
+  {
+    plugins: { 'simple-import-sort': eslintPluginSimpleImportSort },
+    rules: {
+      'simple-import-sort/imports': [
+        'error',
+        {
+          groups: [
+            // `react` and `next` first, then packages starting with `@` followed by packages starting with a character.
+            ['^react$', '^next', '^@?\\w'],
+            // Aliased imports, often starting with `~` or a specific alias.
+            ['^~'],
+            // Imports from parent directories, starting with `../`.
+            ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+            // Imports from the current directory, starting with `./`.
+            ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+            // Side effect imports.
+            ['^\\u0000'],
+          ],
+        },
+      ],
+      'simple-import-sort/exports': 'error',
     },
   },
   ...storybook.configs['flat/recommended'],

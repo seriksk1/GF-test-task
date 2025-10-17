@@ -1,18 +1,18 @@
-import { DatacenterLocation } from './types';
+import { CountryLocation } from '@/components';
 import {
-  UnitedKingdomFlagIcon,
-  UnitedStatesFlagIcon,
-  GermanyFlagIcon,
-  FranceFlagIcon,
-  CanadaFlagIcon,
-  SpainFlagIcon,
-  ChinaFlagIcon,
   AustraliaFlagIcon,
   BrazilFlagIcon,
+  CanadaFlagIcon,
+  ChinaFlagIcon,
+  FranceFlagIcon,
+  GermanyFlagIcon,
+  SpainFlagIcon,
+  UnitedKingdomFlagIcon,
+  UnitedStatesFlagIcon,
   WorldFlagIcon,
 } from '@/components/icons';
 
-export const datacenterLocations: DatacenterLocation[] = [
+export const allCountriesLocations: CountryLocation[] = [
   { countryCode: 'UK', name: 'United Kingdom', icon: UnitedKingdomFlagIcon },
   { countryCode: 'US', name: 'United States', icon: UnitedStatesFlagIcon },
   { countryCode: 'DE', name: 'Germany', icon: GermanyFlagIcon },
@@ -24,3 +24,5 @@ export const datacenterLocations: DatacenterLocation[] = [
   { countryCode: 'BR', name: 'Brazil', icon: BrazilFlagIcon },
   { countryCode: 'WR', name: 'World', icon: WorldFlagIcon },
 ];
+
+export const defaultCountryLocation: CountryLocation = allCountriesLocations[0];

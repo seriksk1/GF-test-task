@@ -1,49 +1,50 @@
 'use client';
 
-import { DatacenterLocation, Dropdown } from '@/components';
 import React from 'react';
-import { datacenterLocations } from '../../app/_sections/datacenter-location-selection/data';
-import { DropdownOption } from '@/components';
-import { defaultDatacenterLocationOption } from '../../app/_sections/order-summary';
 
-const countryOptions: DropdownOption[] = datacenterLocations.map(
-  ({ countryCode, icon, name }) => ({
-    label: name,
-    value: countryCode,
-    icon,
-  })
-);
+import { defaultCountryLocation } from './data';
+import { CountryLocation } from './types';
+import { getOptionByCountry } from './utils';
+
+import { Dropdown, DropdownOption } from '@/components';
 
 interface SelectCountryProps {
-  selectedOption: DropdownOption;
-  onCountrySelect: (location: DatacenterLocation) => void;
+  selectedCountry: CountryLocation;
+  countries: CountryLocation[];
+  onCountrySelect: (option: CountryLocation) => void;
 }
 
-export function SelectCountry({ selectedOption, onCountrySelect }: SelectCountryProps) {
-  function onSelectValueChange(value: string) {
-    const selectedLocation = datacenterLocations.find(
-      (location) => location.countryCode === value
-    );
+export function SelectCountry({
+  selectedCountry,
+  countries,
+  onCountrySelect,
+}: SelectCountryProps) {
+  const selectedCountryOption: DropdownOption = getOptionByCountry(selectedCountry);
+  const defaultCountryOption: DropdownOption = getOptionByCountry(defaultCountryLocation);
 
-    if (!selectedLocation) {
+  const countryOptions: DropdownOption[] = React.useMemo(
+    () => countries.map(getOptionByCountry),
+    [countries]
+  );
+
+  function onSelectValueChange(value: string) {
+    const newSelectedCountry = countries.find((country) => country.countryCode === value);
+
+    if (!newSelectedCountry) {
       console.error(
         `onSelectValueChange: Location with country code "${value}" not found!`
       );
       return;
     }
 
-    onCountrySelect(selectedLocation);
+    onCountrySelect(newSelectedCountry);
   }
 
   return (
     <Dropdown
-      defaultOption={{
-        label: defaultDatacenterLocationOption.name,
-        value: defaultDatacenterLocationOption.countryCode,
-        icon: defaultDatacenterLocationOption.icon,
-      }}
+      defaultOption={defaultCountryOption}
       options={countryOptions}
-      selectedOption={selectedOption}
+      selectedOption={selectedCountryOption}
       onSelectValueChange={onSelectValueChange}
       placeholder="Please select a country"
     />

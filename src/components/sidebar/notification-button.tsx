@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { BellIcon } from '../icons';
 import { Button, Caption } from '../ui';
 
@@ -14,7 +15,6 @@ export function NotificationButton({
   const hasAnyNotifications = Boolean(notificationsCount);
   const isCountLimitReached = notificationsCount > countLimit;
 
-  /* TODO: Replace div with a Button component */
   return (
     <Button className="relative p-2 hover:opacity-75" variant="text">
       <BellIcon className="size-5" stroke="var(--grey-700)" />

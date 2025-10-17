@@ -3,9 +3,11 @@
 import * as React from 'react';
 import * as SliderPrimitive from '@radix-ui/react-slider';
 
-import { cn } from '@/lib/utils';
 import { FourDotsIcon } from '../icons';
+
 import { Paragraph } from './typography';
+
+import { cn } from '@/lib/utils';
 
 function Slider({
   className,

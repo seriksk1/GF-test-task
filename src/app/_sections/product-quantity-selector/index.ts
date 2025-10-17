@@ -1,1 +1,2 @@
-export * from './product-quantity-selector';
+export * from './data';
+export { default } from './product-quantity-selector';

@@ -1,1 +1,1 @@
-export * from './datacenter-location-selection';
+export { default } from './datacenter-location-selection';

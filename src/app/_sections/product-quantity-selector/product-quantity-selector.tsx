@@ -1,24 +1,23 @@
 'use client';
 
-import { useOrder } from '@/app/_providers';
-import { QuantitySlider } from '@/components';
-import { SubtitleSmall, Button, Input } from '@/components/ui';
-import { Edit } from 'lucide-react';
 import React from 'react';
-import { ipQuantitySteps } from './data';
+import { Edit } from 'lucide-react';
+
 import { getIpBundlePriceByQuantity } from '../order-summary';
 
-const MIN_QUANTITY = 10;
-const MAX_QUANTITY = 1000;
+import { ipQuantitySteps, PRODUCT_MAX_QUANTITY, PRODUCT_MIN_QUANTITY } from './data';
+
+import { Button, Input, QuantitySlider, SubtitleSmall } from '@/components';
+import { useOrder } from '@/contexts/order-context';
 
 interface ProductQuantitySelectorProps {
   maxQuantity?: number;
   minQuantity?: number;
 }
 
-export function ProductQuantitySelector({
-  maxQuantity = MAX_QUANTITY,
-  minQuantity = MIN_QUANTITY,
+export default function ProductQuantitySelector({
+  maxQuantity = PRODUCT_MIN_QUANTITY,
+  minQuantity = PRODUCT_MAX_QUANTITY,
 }: ProductQuantitySelectorProps) {
   const { ipsQuantity: orderIpsQuantity, changeOrder } = useOrder();
 
@@ -64,8 +63,8 @@ export function ProductQuantitySelector({
             <Input
               className="flex-1"
               defaultValue={orderIpsQuantity}
-              min={MIN_QUANTITY}
-              max={MAX_QUANTITY}
+              min={minQuantity}
+              max={maxQuantity}
               onBlur={onCustomQuantityChange}
               placeholder="Enter IPs quantity..."
             />

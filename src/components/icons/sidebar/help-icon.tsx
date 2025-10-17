@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { DefaultIconProps } from '../types';
 
 export function HelpIcon({ className, stroke = '#384250', ...props }: DefaultIconProps) {

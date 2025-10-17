@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { SidebarGroupItem } from './types';
 import { SubtitleSmall } from '../ui';
+
+import { SidebarGroupItem } from './types';
 
 export function SidebarGroupItemComponent({
   children,

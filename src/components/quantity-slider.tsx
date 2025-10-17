@@ -1,8 +1,8 @@
 'use client';
 
 import * as React from 'react';
-import { Slider } from '@/components/ui/slider';
-import { ParagraphSmall } from './ui';
+
+import { ParagraphSmall, Slider } from '@/components';
 
 export function QuantitySlider({
   value,
@@ -36,6 +36,7 @@ export function QuantitySlider({
             key={quantity}
             className="absolute text-grey-500 font-medium tracking-[-0.2px] translate-x-[-50%]"
             style={{
+              // Calculations to align the labels properly under the slider ticks
               left: `calc(${(i / (quantitySteps.length - 1)) * 100}% + ${11.69 + i * -2.52}px)`,
             }}
           >

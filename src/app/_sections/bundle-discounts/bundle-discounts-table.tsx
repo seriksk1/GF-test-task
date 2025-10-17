@@ -1,12 +1,13 @@
+import React, { CSSProperties } from 'react';
+
 import {
   Table,
-  TableHeader,
   TableBody,
-  TableRow,
-  TableHead,
   TableCell,
-} from '@/components/ui';
-import React, { CSSProperties } from 'react';
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components';
 
 interface BundleDiscountsTableProps {
   tableHeaders?: string[];

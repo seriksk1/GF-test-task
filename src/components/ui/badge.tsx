@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
-import { cn } from '@/lib/utils';
 import { CloseIcon } from '../icons';
+
+import { cn } from '@/lib/utils';
 
 const badgeVariants = cva(
   'inline-flex items-center gap-x-1 py-0.5 rounded-[4px] font-medium',

@@ -1,4 +1,4 @@
-import { ipBundles } from './data';
+import { ipBundles } from '../bundle-discounts/data';
 
 export const getIpBundlePriceByQuantity = (ipQuantity: number) => {
   const currentBundle = ipBundles.find(
@@ -38,14 +38,10 @@ export const getOrderTotalWithDiscounts = ({
   promoCodeDiscountPercentage?: number;
 }): number => {
   try {
-    const promoCodeDiscount = getDiscountTotalByPercentage(
-      subTotal,
-      promoCodeDiscountPercentage
-    );
-    const subscriptionDiscount = getDiscountTotalByPercentage(
-      subTotal,
-      subscriptionDiscountPercentage
-    );
+    const [promoCodeDiscount, subscriptionDiscount] = [
+      getDiscountTotalByPercentage(subTotal, promoCodeDiscountPercentage),
+      getDiscountTotalByPercentage(subTotal, subscriptionDiscountPercentage),
+    ];
 
     const orderTotal = subTotal - promoCodeDiscount - subscriptionDiscount;
 

@@ -1,6 +1,9 @@
 'use client';
 
-import { useOrder } from '@/app/_providers';
+import React from 'react';
+
+import { OrderOption } from './types';
+
 import {
   BenefitItem,
   BenefitsList,
@@ -11,16 +14,15 @@ import {
   ParagraphSmall,
   Subtitle,
   SubtitleSmall,
-} from '@/components/ui';
-import React from 'react';
-import { OrderOption } from './types';
+} from '@/components';
+import { useOrder } from '@/contexts/order-context';
 
 interface OrderSummaryProps {
   subtitle: string;
   benefits?: string[];
 }
 
-export function OrderSummary({ subtitle, benefits = [] }: OrderSummaryProps) {
+export default function OrderSummary({ subtitle, benefits = [] }: OrderSummaryProps) {
   const { subscription, totalPrice, datacenterLocation, ipsQuantity, pricePerIp } =
     useOrder();
 
@@ -40,7 +42,6 @@ export function OrderSummary({ subtitle, benefits = [] }: OrderSummaryProps) {
       <div className="flex flex-col gap-y-4">
         <Subtitle>{subtitle}</Subtitle>
 
-        {/* Benefits component */}
         {!!benefits.length && (
           <BenefitsList>
             {benefits.map((benefit) => (
@@ -49,7 +50,6 @@ export function OrderSummary({ subtitle, benefits = [] }: OrderSummaryProps) {
           </BenefitsList>
         )}
 
-        {/* Picked options component */}
         <ul className="flex flex-col gap-y-2">
           {selectedOrderOptions.map(({ value, label }) => (
             <li key={label} className="flex justify-between items-center gap-x-4">
@@ -63,7 +63,6 @@ export function OrderSummary({ subtitle, benefits = [] }: OrderSummaryProps) {
           ))}
         </ul>
 
-        {/* Discount*/}
         <div className="flex pt-4 gap-x-2">
           <Input name="discount" placeholder="Add discount code" />
           <Button variant="outline" size="small">
@@ -71,7 +70,6 @@ export function OrderSummary({ subtitle, benefits = [] }: OrderSummaryProps) {
           </Button>
         </div>
 
-        {/* Total */}
         <div className="flex items-center justify-between pt-4 border-t-1 border-grey-300">
           <SubtitleSmall className="text-grey-700">Total</SubtitleSmall>
           <Heading4 className="font-medium text-grey-800">

@@ -5,19 +5,19 @@ import ChinaFlagIcon from 'public/icons/flags/cn.svg';
 import GermanyFlagIcon from 'public/icons/flags/de.svg';
 import SpainFlagIcon from 'public/icons/flags/es.svg';
 import FranceFlagIcon from 'public/icons/flags/fr.svg';
-import WorldFlagIcon from 'public/icons/flags/world.svg';
 import UnitedKingdomFlagIcon from 'public/icons/flags/uk.svg';
 import UnitedStatesFlagIcon from 'public/icons/flags/us.svg';
+import WorldFlagIcon from 'public/icons/flags/world.svg';
 
 export {
   AustraliaFlagIcon,
   BrazilFlagIcon,
   CanadaFlagIcon,
   ChinaFlagIcon,
+  FranceFlagIcon,
   GermanyFlagIcon,
   SpainFlagIcon,
-  FranceFlagIcon,
-  WorldFlagIcon,
   UnitedKingdomFlagIcon,
   UnitedStatesFlagIcon,
+  WorldFlagIcon,
 };

@@ -1,3 +1,17 @@
+import React from 'react';
+import { Metadata } from 'next';
+import Image from 'next/image';
+
+import BundleDiscounts from './_sections/bundle-discounts';
+import DatacenterLocationSelection from './_sections/datacenter-location-selection';
+import OrderSummary from './_sections/order-summary';
+import ProductQuantitySelector from './_sections/product-quantity-selector';
+import SubscriptionBenefits from './_sections/subscription-benefits';
+import SubscriptionCycleOptions, {
+  allSubscriptionCycles,
+} from './_sections/subscription-cycle-options';
+
+import { Button, Heading4, Paper, ParagraphSmall, SubtitleSmall } from '@/components';
 import {
   AmericanExpressIcon,
   ChevronLeftIcon,
@@ -7,19 +21,6 @@ import {
   UnionPayIcon,
   VisaIcon,
 } from '@/components/icons';
-import { Button, Heading4, Paper, ParagraphSmall, SubtitleSmall } from '@/components/ui';
-import { Metadata } from 'next';
-import Image from 'next/image';
-import React from 'react';
-import {
-  BundleDiscounts,
-  mockSubscriptionCycleOptions,
-  OrderSummary,
-  ProductQuantitySelector,
-  DatacenterLocationSelection,
-  SubscriptionBenefits,
-  SubscriptionCycleOptions,
-} from './_sections';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
@@ -73,16 +74,14 @@ export default function Home() {
             </div>
             <BundleDiscounts />
             <ProductQuantitySelector />
-            <SubscriptionCycleOptions options={mockSubscriptionCycleOptions} />
+            <SubscriptionCycleOptions options={allSubscriptionCycles} />
             <DatacenterLocationSelection />
           </Paper>
           <SubscriptionBenefits />
         </div>
         {/* Right side */}
         <div className="flex flex-col w-full gap-y-4">
-          {/* Section component */}
           <Paper>
-            {/* Order component */}
             <OrderSummary
               subtitle="Datacenter Proxies"
               benefits={['3-day Trial', 'Customer Success Manager']}

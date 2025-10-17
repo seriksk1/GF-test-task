@@ -1,7 +1,9 @@
 import React from 'react';
-import { SidebarGroupItem } from './types';
+
 import { OverlineText } from '../ui';
+
 import { SidebarGroupItemComponent } from './sidebar-group-item';
+import { SidebarGroupItem } from './types';
 
 export interface SidebarGroupProps {
   title?: string;

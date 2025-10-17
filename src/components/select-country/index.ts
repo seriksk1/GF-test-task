@@ -1,3 +1,4 @@
-export * from '../../app/_sections/datacenter-location-selection/types';
-export * from '../../app/_sections/datacenter-location-selection/data';
+export * from './data';
 export * from './select-country';
+export * from './types';
+export * from './utils';

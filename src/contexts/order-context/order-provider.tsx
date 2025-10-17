@@ -1,44 +1,17 @@
 'use client';
-
 import React, { createContext, PropsWithChildren, useContext } from 'react';
+
+import { defaultOrderState } from './data';
+import { OrderContextState, OrderContextStateValues } from './types';
+
 import {
-  defaultIpBundle,
   getIpBundlePriceByQuantity,
   getOrderTotalWithDiscounts,
-  mockSubscriptionCycleOptions,
-  SubscriptionCycleOption,
-} from '../_sections';
-import { datacenterLocations, DatacenterLocation } from '@/components';
+} from '@/app/_sections/order-summary';
 
-interface OrderContextStateValues {
-  datacenterLocation: DatacenterLocation;
-  subscription: SubscriptionCycleOption;
-  ipsQuantity: number;
-  pricePerIp: number;
-  totalPrice: number;
-  promoCode?: {
-    discountPercentage: number;
-    description: string;
-    actualCode: string;
-  };
-}
+const OrderContext = createContext<OrderContextState>(defaultOrderState);
 
-export interface OrderContextState extends OrderContextStateValues {
-  changeOrder: (state: Partial<OrderContextStateValues>) => void;
-}
-
-export const defaultOrderState: OrderContextState = {
-  datacenterLocation: datacenterLocations[0],
-  subscription: mockSubscriptionCycleOptions[1],
-  ipsQuantity: defaultIpBundle.from,
-  pricePerIp: defaultIpBundle.price,
-  totalPrice: defaultIpBundle.from * defaultIpBundle.price,
-  changeOrder: () => {},
-};
-
-export const OrderContext = createContext<OrderContextState>(defaultOrderState);
-
-export function OrderProvider({ children }: PropsWithChildren) {
+export default function OrderProvider({ children }: PropsWithChildren) {
   const [orderState, setOrderState] = React.useState(defaultOrderState);
 
   function recalculateOrder(state: OrderContextStateValues): number {

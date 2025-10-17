@@ -1,1 +1,2 @@
-export * from './subscription-benefits';
+export * from './data';
+export { default } from './subscription-benefits';

@@ -19,6 +19,7 @@ const buttonVariants = cva(
         medium: 'py-1.5 px-4 text-sm leading-5',
         small: 'py-1 px-3 text-(length:--text-button-small) leading-5',
         large: 'py-2 px-4 text-base leading-6',
+        icon: 'size-7 p-1 text-(length:--text-button-small) leading-5 [&>svg]:w-full [&>svg]:h-full',
       },
       destructive: {
         on: '',

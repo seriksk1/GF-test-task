@@ -1,10 +1,11 @@
-import { BenefitItem, BenefitsList, Heading6, Paper } from '@/components/ui';
 import React from 'react';
 
 import { subscriptionBenefits } from './data';
+
+import { BenefitItem, BenefitsList, Heading6, Paper } from '@/components';
 import { cn } from '@/lib/utils';
 
-export function SubscriptionBenefits() {
+export default function SubscriptionBenefits() {
   return (
     <Paper>
       <div className="flex flex-col gap-y-4">

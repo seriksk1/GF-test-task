@@ -1,14 +1,15 @@
 'use client';
 
-import { useOrder } from '@/app/_providers';
-import { DatacenterLocation, SelectCountry } from '@/components';
-import { SubtitleSmall } from '@/components/ui';
 import React from 'react';
 
-export function DatacenterLocationSelection() {
+import { SelectCountry, SubtitleSmall } from '@/components';
+import { allCountriesLocations, CountryLocation } from '@/components/select-country';
+import { useOrder } from '@/contexts/order-context';
+
+export default function DatacenterLocationSelection() {
   const { datacenterLocation, changeOrder } = useOrder();
 
-  function onCountrySelect(location: DatacenterLocation) {
+  function onCountrySelect(location: CountryLocation) {
     changeOrder({ datacenterLocation: location });
   }
 
@@ -16,11 +17,8 @@ export function DatacenterLocationSelection() {
     <div className="flex flex-col gap-y-2">
       <SubtitleSmall>Select location</SubtitleSmall>
       <SelectCountry
-        selectedOption={{
-          label: datacenterLocation.name,
-          value: datacenterLocation.countryCode,
-          icon: datacenterLocation.icon,
-        }}
+        countries={allCountriesLocations}
+        selectedCountry={datacenterLocation}
         onCountrySelect={onCountrySelect}
       />
     </div>
